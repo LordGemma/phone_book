@@ -1,0 +1,16 @@
+.user-details-block {
+  display: flex;
+  justify-content: center;
+}
+
+.user-details-block .user-details {
+  display: flex;
+  align-items: center;
+}
+.user-details-block .user-details .user-info {
+  margin-left: 15px;
+}
+
+.user-details-block .user-details .user-info p {
+  margin: 0;
+}

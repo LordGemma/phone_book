@@ -1,7 +1,6 @@
 import React from 'react';
 import { Image, Button } from 'react-bootstrap';
 import './User.css';
-import { deleteUser } from '../../store/users/actionTypes';
 
 const User = ({ data, deleteUser }) => {
   const {

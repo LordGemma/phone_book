@@ -1,2 +1,3 @@
 export { default } from './Users';
-export * from './User';
+export * from './Components/User';
+export * from './Containers';

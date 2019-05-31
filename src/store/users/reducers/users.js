@@ -33,12 +33,14 @@ export const usersReducer = (state = initialState, action) => {
       };
 
     case EDIT_USER:
-      const user = action.payload.userData;
-      const editedlist = [...state.users];
-      editedlist.push(user);
+      const editedUser = action.payload.userData;
+      const data = [...state.users];
+      const oldUserDataPosition = data.findIndex(user => user.id === editedUser.id)
+      data[oldUserDataPosition] = editedUser;
       return {
         ...state,
-        users: editedlist,
+        users: data,
+        user: editedUser,
       };
     case DELETE_USER:
       return {

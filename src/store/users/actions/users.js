@@ -1,4 +1,9 @@
-import { fetchAllUsers, fetchUser, deleteUser as deleteUserData } from "../actionTypes";
+import { 
+  fetchAllUsers, 
+  fetchUser, 
+  deleteUser as deleteUserData,
+  editUser as editUserData,
+} from "../actionTypes";
 import { fetchUsersData, fetchUserData } from '../../../services/users';
 // import { getGuid } from '../../../utils/guid'
 
@@ -31,4 +36,10 @@ export const deleteUser = (id) => {
   return dispatch => {
     dispatch(deleteUserData(id));
   };
+}
+
+export const editUser = (userData) => {
+  return dispatch => {
+    dispatch(editUserData(userData));
+  }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import User from './User';
+import User from './Components/User';
 
 const Users = ({ users, currentUser, getUser, deleteUser }) => (
   <ListGroup variant="flush" defaultActiveKey={currentUser.id}>
