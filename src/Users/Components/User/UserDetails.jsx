@@ -15,6 +15,8 @@ export class UserDetails extends PureComponent {
       history,
     } = this.props.user
 
+    const { showModal } = this.props;
+
     return (
       <div className="user-details-block">
         <Card bg="light" style={{ width: '80%' }}>
@@ -27,7 +29,7 @@ export class UserDetails extends PureComponent {
                 <p><b>Email:</b> {email}</p>
               </div>
               <div className="edit-btn">
-                <Button variant="success">Edit</Button>
+                <Button variant="success" onClick={() => showModal(id)}>Edit</Button>
               </div>
             </div>
           </Card.Header>

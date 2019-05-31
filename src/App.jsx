@@ -6,7 +6,8 @@ import Header from './Header/Components';
 // import Footer from './Footer/Components';
 import { Sidebar } from './Sidebar/Containers';
 import Main from './Main/Components';
-import { getAllUsers } from './store/users'
+import { getAllUsers } from './store/users';
+import { Modal } from './Modal/Containers';
 
 class App extends Component {
   componentDidMount() {
@@ -20,6 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Modal />
         <Header />
         <Row noGutters>
           <Sidebar />

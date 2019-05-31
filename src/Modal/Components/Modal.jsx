@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
-class Modal extends Component {
+class ModalComponent extends Component {
   render() {
+    const {
+      isVisible,
+      onHide,
+      onSave,
+    } = this.props;
+
     return (
       <Modal
-        {...this.props}
+        show={isVisible}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -48,12 +54,12 @@ class Modal extends Component {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={this.props.onHide}>Close</Button>
-          <Button variant="success" onClick={this.props.onSave}>Save</Button>
+          <Button variant="secondary" onClick={() => onHide()}>Close</Button>
+          <Button variant="success" onClick={() => onSave()}>Save</Button>
         </Modal.Footer>
       </Modal>
     );
   }
 }
 
-export default Modal;
+export default ModalComponent;

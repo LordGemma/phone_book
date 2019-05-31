@@ -3,9 +3,12 @@ import {
   fetchUser, 
   deleteUser as deleteUserData,
   editUser as editUserData,
+  addUser as addUserData,
 } from "../actionTypes";
+
 import { fetchUsersData, fetchUserData } from '../../../services/users';
-// import { getGuid } from '../../../utils/guid'
+
+import { getGuid } from '../../../utils/guid';
 
 export const getAllUsers = () => {
   return dispatch => {
@@ -41,5 +44,16 @@ export const deleteUser = (id) => {
 export const editUser = (userData) => {
   return dispatch => {
     dispatch(editUserData(userData));
+  }
+}
+
+export const addUser = (userData) => {
+  const newUser = {
+    ...userData,
+    id: getGuid,
+  }; 
+
+  return dispatch => {
+    dispatch(addUserData(newUser));
   }
 }
