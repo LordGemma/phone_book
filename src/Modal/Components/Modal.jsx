@@ -103,7 +103,15 @@ class ModalComponent extends Component {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => onHide()}>Close</Button>
+          <Button variant="secondary" onClick={() => {
+            onHide();
+            this.setState({
+              first_name: '',
+              last_name: '',
+              email: '',
+              phone: '',
+            })
+          }}>Close</Button>
           <Button variant="success" onClick={() => {
                 const data = {
                   id: isEditMode ? this.props.editedUser.id : getGuid(),
