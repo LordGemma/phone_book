@@ -1,8 +1,11 @@
-import * as users from '../mockData/users.json';
+import axios from 'axios';
 
-export const fetchUsersData = () => Promise.resolve(users);
+export const fetchUsersData = () => {
+  return axios.get(`/users.json`);
+};
 
-export const fetchUserData = (userId) => {
-  const userData = users.find(user => user.id === userId);
+export const fetchUserData = async (userId) => {
+  const users = await fetchUsersData();
+  const userData = users.data.find(user => user.id === userId);
   return Promise.resolve(userData);
 };

@@ -1,21 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Row } from 'react-bootstrap';
 import './App.css';
 import Header from './Header/Components';
 // import Footer from './Footer/Components';
-import Sidebar from './Sidebar/Components';
+import { Sidebar } from './Sidebar/Containers';
 import Main from './Main/Components';
+import { getAllUsers } from './store/users'
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Row noGutters>
-        <Sidebar />
-        <Main />
-      </Row>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    const {
+      getUsers,
+    } = this.props;
+
+    getUsers();
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Row noGutters>
+          <Sidebar />
+          <Main />
+        </Row>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    getUsers: () => dispatch(getAllUsers()),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);
