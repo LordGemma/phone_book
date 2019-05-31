@@ -7,10 +7,36 @@
   display: flex;
   align-items: center;
 }
+
+.user-details-block .user-details .edit-btn {
+  height: 100%;
+  margin-left: auto;
+  align-self: flex-start;
+}
+
 .user-details-block .user-details .user-info {
   margin-left: 15px;
 }
 
 .user-details-block .user-details .user-info p {
   margin: 0;
+}
+
+.user-details-block .call-history {
+
+}
+
+.user-details-block .call-history .call {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.user-details-block .call-history .call p {
+  margin: 0;
+}
+
+.user-details-block .call-history .call img {
+  max-width: 20px;
+  margin-right: 20px;
 }

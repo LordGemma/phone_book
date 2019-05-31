@@ -5,7 +5,8 @@ import './User.css';
 const User = ({ data, deleteUser }) => {
   const {
     id,
-    full_name,
+    first_name,
+    last_name,
     avatar,
     phone,
   } = data;
@@ -14,7 +15,7 @@ const User = ({ data, deleteUser }) => {
     <div className="user-block">
       <Image src={avatar} roundedCircle thumbnail/>
       <div>
-        <p className="full-name">{ full_name }</p>
+        <p className="full-name">{`${first_name} ${last_name}`}</p>
         <p className="phone">{ phone }</p>
       </div>
       <Button 

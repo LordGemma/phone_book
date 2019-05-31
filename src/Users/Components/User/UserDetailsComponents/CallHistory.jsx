@@ -1,12 +1,16 @@
 import React from 'react';
 import CallHistoryItem from './CallHistoryItem';
+import { ListGroup } from 'react-bootstrap';
+
 
 const CallHistory = ({ history }) => {
   return (
     <div className="call-history">
-      {
-        history && history.map(call => <CallHistoryItem call={call} />)
-      }
+      <ListGroup variant="flush">
+        {
+          history && history.map(call => <CallHistoryItem call={call} />)
+        }
+      </ListGroup>
     </div>
   );
 };

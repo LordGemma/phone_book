@@ -1,4 +1,6 @@
 import React from 'react';
+import { Image, ListGroup } from 'react-bootstrap';
+import moment from 'moment';
 
 const CallHistoryItem = ({ call }) => {
   const {
@@ -6,11 +8,17 @@ const CallHistoryItem = ({ call }) => {
     conversation_time,
     date,
   } = call;
-  const callDirection = conversation_direction === 'out' ? '' : ;
+  const callDirection = conversation_direction === 'out' ? 'outcomming' : 'incomming';
   return (
-    <div className="call">
-      
-    </div>
+    <ListGroup.Item>
+      <div className="call">
+        <Image src={`/assets/${callDirection}.svg`}/>
+        <div>
+          <p>date: {moment(date).format('DD/MM/YYYY')}</p>
+          <p>duration: {conversation_time} min</p>
+        </div>
+      </div>
+    </ListGroup.Item>
   );
 };
 

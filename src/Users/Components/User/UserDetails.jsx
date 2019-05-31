@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Image, Card } from 'react-bootstrap';
+import { Image, Card, Button } from 'react-bootstrap';
 import './UserDetails.css';
 import CallHistory from './UserDetailsComponents/CallHistory';
 
@@ -8,7 +8,8 @@ export class UserDetails extends PureComponent {
     const {
       id,
       avatar,
-      full_name,
+      first_name,
+      last_name,
       phone,
       email,
       history,
@@ -21,9 +22,12 @@ export class UserDetails extends PureComponent {
             <div className="user-details">
               <Image src={avatar} roundedCircle thumbnail/>
               <div className="user-info">
-                <h5>{full_name}</h5>
+                <h5>{`${first_name} ${last_name}`}</h5>
                 <p><b>Phone:</b> {phone}</p>
                 <p><b>Email:</b> {email}</p>
+              </div>
+              <div className="edit-btn">
+                <Button variant="success">Edit</Button>
               </div>
             </div>
           </Card.Header>
