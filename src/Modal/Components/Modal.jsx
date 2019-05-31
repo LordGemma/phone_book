@@ -15,17 +15,8 @@ class ModalComponent extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const {
-      isVisible,
-      isEditMode,
-      editedUser,
-    } = nextProps;
-    return isVisible && _.isEqual(nextState, this.state) || !isVisible || !_.isEqual(this.state, editedUser) ;
-  }
-
   componentDidUpdate(prevProps, prevState,) {
-    if(this.props.editedUser) {
+    if(this.props.editedUser && !_.isEqual(prevProps.editedUser, this.props.editedUser)) {
       const {
         first_name,
         last_name,
@@ -33,10 +24,10 @@ class ModalComponent extends Component {
         phone,
       } = this.props.editedUser;
       this.setState({
-        first_name,
-        last_name,
-        email,
-        phone,
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        phone: phone,
       })
     }
   }

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Row, Button } from 'react-bootstrap';
 import './App.css';
 import Header from './Header/Components';
-// import Footer from './Footer/Components';
 import { Sidebar } from './Sidebar/Containers';
 import Main from './Main/Components';
 import { getAllUsers } from './store/users';
