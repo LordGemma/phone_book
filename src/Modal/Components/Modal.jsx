@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Modal, Button, Form, Row, Col } from 'react-bootstrap';
+import { Modal, Button, Form, Col } from 'react-bootstrap';
+import { getGuid } from '../../utils/guid';
+import _ from 'lodash';
 
 class ModalComponent extends Component {
   constructor(props) {
@@ -13,11 +15,38 @@ class ModalComponent extends Component {
     }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    const {
+      isVisible,
+      isEditMode,
+      editedUser,
+    } = nextProps;
+    return isVisible && _.isEqual(nextState, this.state) || !isVisible || !_.isEqual(this.state, editedUser) ;
+  }
+
+  componentDidUpdate(prevProps, prevState,) {
+    if(this.props.editedUser) {
+      const {
+        first_name,
+        last_name,
+        email,
+        phone,
+      } = this.props.editedUser;
+      this.setState({
+        first_name,
+        last_name,
+        email,
+        phone,
+      })
+    }
+  }
+
   render() {
     const {
       isVisible,
       onHide,
       onSave,
+      isEditMode,
     } = this.props;
 
     const {
@@ -84,12 +113,21 @@ class ModalComponent extends Component {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => onHide()}>Close</Button>
-          <Button variant="success" onClick={() => onSave({
-            first_name,
-            last_name,
-            email,
-            phone
-          })}>Save</Button>
+          <Button variant="success" onClick={() => {
+                const data = {
+                  id: isEditMode ? this.props.editedUser.id : getGuid(),
+                  ...this.state
+                }; 
+                onSave(data, isEditMode);
+                this.setState({
+                  first_name: '',
+                  last_name: '',
+                  email: '',
+                  phone: '',
+                })
+              }
+            }
+            >Save</Button>
         </Modal.Footer>
       </Modal>
     );

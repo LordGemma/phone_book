@@ -8,8 +8,6 @@ import {
 
 import { fetchUsersData, fetchUserData } from '../../../services/users';
 
-import { getGuid } from '../../../utils/guid';
-
 export const getAllUsers = () => {
   return dispatch => {
     fetchUsersData()
@@ -50,7 +48,6 @@ export const editUser = (userData) => {
 export const addUser = (userData) => {
   const newUser = {
     ...userData,
-    id: getGuid,
     avatar: 'http://lorempixel.com/128/128/people',
   }; 
 

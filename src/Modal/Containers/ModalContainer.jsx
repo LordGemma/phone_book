@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { hideModal } from '../../store/modal';
-import { addUser } from '../../store/users';
+import { addUser, editUser } from '../../store/users';
 import { default as ModalComponent } from '../Components';
 
 const mapStateToProps = state => {
@@ -16,7 +16,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSave: (data) => dispatch(addUser(data)),
+    onSave: (data, editMode) => {
+      editMode ?
+      dispatch(editUser(data))
+      : dispatch(addUser(data));
+      dispatch(hideModal());
+    },
     onHide: () => dispatch(hideModal()),
   }
 }
