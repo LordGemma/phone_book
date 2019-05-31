@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getUser } from '../../store/users'
+import { getUser, deleteUser } from '../../store/users'
 import { default as SidebarComponent } from '../Components'
 
 const mapStateToProps = state => {
@@ -13,6 +13,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getUser: (id) => dispatch(getUser(id)),
+    deleteUser: (id) => dispatch(deleteUser(id)),
   }
 }
 

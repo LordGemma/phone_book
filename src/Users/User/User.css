@@ -1,0 +1,22 @@
+.user-block {
+  display: flex;
+  align-items: center;
+}
+
+.user-block p {
+  margin: 0;
+}
+
+.user-block p.phone {
+  font-size: 14px;
+}
+
+.user-block img {
+  max-width: 50px;
+  max-height: 50px;
+  margin-right: 15px;
+}
+
+.user-block button {
+  margin-left: auto;
+}
