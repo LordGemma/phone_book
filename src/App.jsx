@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Row } from 'react-bootstrap';
+import { Row, Button } from 'react-bootstrap';
 import './App.css';
 import Header from './Header/Components';
 // import Footer from './Footer/Components';
@@ -8,6 +8,7 @@ import { Sidebar } from './Sidebar/Containers';
 import Main from './Main/Components';
 import { getAllUsers } from './store/users';
 import { Modal } from './Modal/Containers';
+import { showModal } from './store/modal';
 
 class App extends Component {
   componentDidMount() {
@@ -19,9 +20,15 @@ class App extends Component {
   }
 
   render() {
+    const {
+      showModal
+    } = this.props;
+
     return (
       <div className="App">
         <Modal />
+        <Button variant="success" onClick={() => showModal(false)}>Add User</Button>
+
         <Header />
         <Row noGutters>
           <Sidebar />
@@ -35,6 +42,7 @@ class App extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     getUsers: () => dispatch(getAllUsers()),
+    showModal: (id) => dispatch(showModal(id)),
   }
 }
 

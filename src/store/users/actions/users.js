@@ -51,6 +51,7 @@ export const addUser = (userData) => {
   const newUser = {
     ...userData,
     id: getGuid,
+    avatar: 'http://lorempixel.com/128/128/people',
   }; 
 
   return dispatch => {

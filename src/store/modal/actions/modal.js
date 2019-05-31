@@ -5,9 +5,9 @@ import {
 
 import { fetchUserData } from '../../../services/users';
 
-export const showModal = () => {
+export const showModal = isEditMode => {
   return dispatch => {
-    dispatch(showModalSelector());
+    dispatch(showModalSelector(isEditMode));
   };
 }
 

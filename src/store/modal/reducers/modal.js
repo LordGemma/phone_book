@@ -5,6 +5,7 @@ import {
 
 const initialState = {
   isVisible: false,
+  isEditMode: false,
 };
 
 export const modalReducer = (state = initialState, action) => {
@@ -13,11 +14,13 @@ export const modalReducer = (state = initialState, action) => {
       return {
         ...state,
         isVisible: true,
+        isEditMode: action.payload.isEditMode,
       };
     case HIDE_MODAL:
       return {
         ...state,
         isVisible: false,
+        isEditMode: false,
       };
     default:
       return state;

@@ -46,6 +46,7 @@ export const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         users: state.users.filter(user => user.id !== action.payload.userId),
+        // user: state.users.filter(user => user.id !== action.payload.userId)[0],
       };
     default:
       return state;

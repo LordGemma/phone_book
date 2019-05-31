@@ -1,0 +1,10 @@
+.App {
+  position: relative;
+}
+
+.App>.btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 100;
+}

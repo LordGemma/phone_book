@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { editUser } from '../../../store/users'
-import { showModal } from '../../../store/modal'
+import { editUser } from '../../../store/users';
+import { showModal } from '../../../store/modal';
 import { UserDetails as UserDetailsComponent } from '../../Components/User';
 
 const mapStateToProps = state => {
@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     editUser: (id) => dispatch(editUser(id)),
-    showModal: (id) => dispatch(showModal()),
+    showModal: (isEditMode) => dispatch(showModal(isEditMode)),
   }
 }
 

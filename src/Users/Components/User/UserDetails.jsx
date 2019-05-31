@@ -29,7 +29,7 @@ export class UserDetails extends PureComponent {
                 <p><b>Email:</b> {email}</p>
               </div>
               <div className="edit-btn">
-                <Button variant="success" onClick={() => showModal(id)}>Edit</Button>
+                <Button variant="success" onClick={() => showModal(true)}>Edit</Button>
               </div>
             </div>
           </Card.Header>
